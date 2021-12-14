@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333931300824",
+    "project_id": "learn-a5204",
+    "storage_bucket": "learn-a5204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333931300824:android:feefef75fddbb159c1d4ad",
+        "android_client_info": {
+          "package_name": "com.inceptionlabs.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333931300824-dp4ne33rmru1khgongf71oqmrr4sf29j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8Z0fOWcTMp9MmsSyJwPiz8kpw5V67yBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333931300824-dp4ne33rmru1khgongf71oqmrr4sf29j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
