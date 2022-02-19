@@ -40,6 +40,8 @@ dependencies:
   firebase_messaging: ^11.2.3
   overlay_support: ^1.2.1
   firebase_phone_auth_handler: ^0.0.8
+  path_provider: ^2.0.8
+  image_picker: ^0.8.4+4
 
 
 
@@ -96,6 +98,9 @@ flutter:
     - family: CodaCaption-ExtraBold
       fonts:
         - asset: assets/fonts/CodaCaption-ExtraBold.ttf
+    - family: icomoon
+      fonts:
+        - asset: assets/fonts/icomoon.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

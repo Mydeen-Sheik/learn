@@ -62,6 +62,26 @@ class ShoePage extends StatelessWidget {
 }
 
 class _HomeScrollState extends State<HomeScroll> {
+  DateTime date = DateTime.now();
+  DateTime onlyDate = DateTime(now.year, now.month, now.day);
+
+  get child => null;
+
+  static get now => null;
+  Future<Null> selectTimePicker(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: date,
+        firstDate: DateTime(2020),
+        lastDate: DateTime(2050));
+    if (picked != null && picked != date) {
+      setState(() {
+        date = picked;
+        print(date.toString());
+      });
+    }
+  }
+
   // int _index = 0;
   Widget buildCard({
     required CardItem item,
@@ -180,15 +200,30 @@ class _HomeScrollState extends State<HomeScroll> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        height: 250,
-        child: ListView.separated(
-          padding: EdgeInsets.all(16),
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (context, index) => buildCard(item: items[index]),
-          separatorBuilder: (context, _) => SizedBox(
-            width: 10,
-          ),
+        child: Column(
+          children: [
+            Container(
+              height: 250,
+              child: ListView.separated(
+                padding: EdgeInsets.all(16),
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) => buildCard(item: items[index]),
+                separatorBuilder: (context, _) => SizedBox(
+                  width: 10,
+                ),
+              ),
+            ),
+            // ignore: deprecated_member_use
+            FlatButton(
+              child: Text(date.toString()),
+              color: Colors.green,
+              textColor: Colors.white,
+              onPressed: () {
+                selectTimePicker(context);
+              },
+            ),
+          ],
         ),
       ),
     );
