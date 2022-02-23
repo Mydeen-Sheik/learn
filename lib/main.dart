@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/dummy.dart';
 import 'package:learn/grid.dart';
 import 'package:learn/helper/utils.dart';
 import 'package:learn/log_in.dart';
@@ -11,6 +12,8 @@ import 'package:learn/pages/selectcategorypage.dart';
 import 'package:learn/register.dart';
 import 'package:learn/sign_up.dart';
 import 'package:learn/splash.dart';
+import 'package:learn/travel.dart';
+import 'package:learn/travel1.dart';
 import 'package:learn/welcome.dart';
 import 'pages/clist.dart ';
 import 'helper/appcolors.dart';
@@ -20,13 +23,13 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: SplashPage(
-      duration: 3,
-      goToPage: SelectCategoryPage(
-        selectCategory: Utils.getMockedCategories()[0],
-      ), //NextPage(),
-    ),
+    debugShowCheckedModeBanner: false, home: Home(),
+    // duration: 3,
+    // goToPage: NextPage(),
+    // SelectCategoryPage(
+    //   selectCategory: Utils.getMockedCategories()[0],
+    // ),
+    //),
   ));
 }
 

@@ -28,3 +28,17 @@ class SubCategory {
     required this.imgName,
   });
 }
+
+class UaeDubai {
+  String name;
+  String subName;
+  String imgName;
+  List<SubCategory> subCategories;
+
+  UaeDubai({
+    required this.name,
+    required this.subName,
+    required this.imgName,
+    required this.subCategories,
+  });
+}

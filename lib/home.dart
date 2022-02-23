@@ -1,231 +1,1310 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/pages/categorycard.dart';
+import 'package:learn/widgets/bottombar.dart';
 
-class HomeScroll extends StatefulWidget {
-  const HomeScroll({Key? key}) : super(key: key);
+import 'helper/appcolors.dart';
+import 'helper/iconhelper.dart';
+import 'helper/utils.dart';
+import 'main.dart';
+import 'model/category.dart';
 
-  @override
-  _HomeScrollState createState() => _HomeScrollState();
-}
-
-class CardItem {
-  final String urlImage;
-  final String title;
-  final String subTitle;
-
-  const CardItem({
-    required this.urlImage,
-    required this.title,
-    required this.subTitle,
-  });
-}
-
-class ShoePage extends StatelessWidget {
-  var item;
-
-  ShoePage({
-    Key? key,
-    required this.item,
-  }) : super(key: key);
+class Home extends StatelessWidget {
+  List<UaeDubai> uaeDubai = Utils.getMockedCategories();
 
   @override
   Widget build(BuildContext context) {
+    final shape = StadiumBorder();
     return Scaffold(
+      drawer: Drawer(),
       appBar: AppBar(
-        title: Text(item.title),
+        title: Image(
+          image: AssetImage(
+            'images/logot.jpeg',
+          ),
+          height: 35,
+          width: 90,
+        ),
         centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.grey,
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator;
+            },
+            icon: Icon(Icons.doorbell),
+          ),
+          // Container(
+          //   margin: EdgeInsets.only(right: 10),
+          //   padding: EdgeInsets.all(10),
+          //   child: ClipOval(
+          //     child: Image.asset('images/logo.jpg'),
+          //
+          //   ),
+          // ),
+        ],
       ),
-      body: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: 4 / 3,
-            child: Image.network(
-              item.urlImage,
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: 40,
+                child: ListView.builder(
+                  itemCount: 1,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Material(
+                        shadowColor: Colors.black87,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: shape,
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xff3E3C3F),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff3E3C3F),
+                              ],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              Navigator;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF0099EE),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 1.0),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 5.9,
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Image(
+                                    image: AssetImage('images/bt1.jpeg'),
+                                    height: 25,
+                                    width: 25,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Flight',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Material(
+                        shadowColor: Colors.black87,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: shape,
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xff3E3C3F),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff3E3C3F),
+                              ],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              Navigator;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 1.0),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 8.9,
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Image(
+                                    image: AssetImage('images/bt2.jpeg'),
+                                    height: 25,
+                                    width: 25,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Hotel',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Material(
+                        shadowColor: Colors.black87,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: shape,
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xff3E3C3F),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff3E3C3F),
+                              ],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              Navigator;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 1.0),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 8.9,
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Image(
+                                    image: AssetImage('images/insurance.png'),
+                                    height: 25,
+                                    width: 25,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Insurance',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Material(
+                        shadowColor: Colors.black87,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: shape,
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xff3E3C3F),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff3E3C3F),
+                              ],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              Navigator;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF0099EE),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 1.0),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 5.9,
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Image(
+                                    image: AssetImage('images/bt3.jpeg'),
+                                    height: 25,
+                                    width: 25,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'UAE Attraction',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Material(
+                        shadowColor: Colors.black87,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: shape,
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xff3E3C3F),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff27A4BF),
+                                Color(0xff3E3C3F),
+                              ],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              Navigator;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 1.0),
+                                        offset: Offset(0, 0),
+                                        blurRadius: 5.9,
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Image(
+                                    image: AssetImage('images/bt5.jpeg'),
+                                    height: 25,
+                                    width: 25,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Holiday',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  itemCount: 1,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Row(
+                    children: [
+                      Container(
+                        height: 300,
+                        width: 250,
+                        margin: EdgeInsets.all(5),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              child: Stack(
+                                children: [
+                                  Positioned.fill(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'images/slid1.jpeg',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    child: Container(
+                                      height: 80,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [
+                                              Colors.black.withOpacity(0.2),
+                                              Colors.black.withOpacity(0.3),
+                                            ]),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 40,
+                                    left: 0,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15),
+                                      child: Container(
+                                        width: 200,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              '\$799 Dubai',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "An exquisite trip you'll rave about to your friends",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 15,
+                                    left: 10,
+                                    child: Material(
+                                      shadowColor: Colors.transparent,
+                                      elevation: 8,
+                                      color: Colors.transparent,
+                                      child: Container(
+                                        decoration: ShapeDecoration(
+                                          shape: shape,
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                            ],
+                                          ),
+                                        ),
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            padding: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            primary: Colors.transparent,
+                                            shadowColor: Colors.transparent,
+                                            elevation: 0,
+                                          ),
+                                          onPressed: () {
+                                            Navigator;
+                                          },
+                                          child: Text(
+                                            'See all',
+                                            style: TextStyle(
+                                              color: Color(0xff444444),
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 300,
+                        width: 250,
+                        margin: EdgeInsets.all(5),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              child: Stack(
+                                children: [
+                                  Positioned.fill(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'images/slid2.jpeg',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    child: Container(
+                                      height: 80,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [
+                                              Colors.black.withOpacity(0.3),
+                                              Colors.black.withOpacity(0.3),
+                                            ]),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 40,
+                                    left: 0,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15),
+                                      child: Container(
+                                        width: 200,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "\$799 Dubai",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "An exquisite trip you'll rave about to your friends",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 15,
+                                    left: 10,
+                                    child: Material(
+                                      shadowColor: Colors.transparent,
+                                      elevation: 8,
+                                      color: Colors.transparent,
+                                      child: Container(
+                                        decoration: ShapeDecoration(
+                                          shape: shape,
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                            ],
+                                          ),
+                                        ),
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            padding: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            primary: Colors.transparent,
+                                            shadowColor: Colors.transparent,
+                                            elevation: 0,
+                                          ),
+                                          onPressed: () {
+                                            Navigator;
+                                          },
+                                          child: Text(
+                                            'See all',
+                                            style: TextStyle(
+                                              color: Color(0xff444444),
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 300,
+                        width: 250,
+                        margin: EdgeInsets.all(5),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              child: Stack(
+                                children: [
+                                  Positioned.fill(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'images/slid2.jpeg',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    child: Container(
+                                      height: 80,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [
+                                              Colors.black.withOpacity(0.3),
+                                              Colors.black.withOpacity(0.3),
+                                            ]),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 40,
+                                    left: 0,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15),
+                                      child: Container(
+                                        width: 200,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "\$799 Dubai",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "An exquisite trip you'll rave about to your friends",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 15,
+                                    left: 10,
+                                    child: Material(
+                                      shadowColor: Colors.transparent,
+                                      elevation: 8,
+                                      color: Colors.transparent,
+                                      child: Container(
+                                        decoration: ShapeDecoration(
+                                          shape: shape,
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                              Color(0xffF2F2F2),
+                                            ],
+                                          ),
+                                        ),
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            padding: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            primary: Colors.transparent,
+                                            shadowColor: Colors.transparent,
+                                            elevation: 0,
+                                          ),
+                                          onPressed: () {
+                                            Navigator;
+                                          },
+                                          child: Text(
+                                            'See all',
+                                            style: TextStyle(
+                                              color: Color(0xff444444),
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Holidays",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff444444)),
+                    ),
+                    Material(
+                      shadowColor: Colors.black87,
+                      elevation: 8,
+                      color: Colors.transparent,
+                      child: Container(
+                        decoration: ShapeDecoration(
+                          shape: shape,
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xff27A4BF),
+                              Color(0xff3E3C3F),
+                              Color(0xff27A4BF),
+                            ],
+                          ),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                            primary: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            elevation: 0,
+                          ),
+                          onPressed: () {
+                            Navigator;
+                          },
+                          child: Text(
+                            'See all',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 240,
+                child: ListView.builder(
+                  itemCount: 1,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Row(
+                    children: [
+                      Container(
+                        height: 220,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xffFAFAFA),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0.1, 0.1),
+                              blurRadius: 3.3,
+                            ),
+                          ],
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 140,
+                                width: 140,
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'images/hl1.jpeg',
+                                        fit: BoxFit.cover,
+                                        height: 140,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 10,
+                                      left: 10,
+                                      child: Text("4 Days"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Moscow",
+                                      style: TextStyle(
+                                          color: Color(0xff444444),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "AUM 766",
+                                      style: TextStyle(
+                                        color: Color(0xff27A4BF),
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 220,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xfffafafa),
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(0.1, 0.1),
+                              color: Colors.black12,
+                              blurRadius: 3.1,
+                            ),
+                          ],
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 140,
+                                width: 150,
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'images/hl2.jpeg',
+                                        fit: BoxFit.cover,
+                                        height: 140,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 10,
+                                      left: 10,
+                                      child: Text("4 Days"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Yamen",
+                                      style: TextStyle(
+                                          color: Color(0xff444444),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "AUM 766",
+                                      style: TextStyle(
+                                        color: Color(0xff27A4BF),
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 220,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xfffafafa),
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(0.1, 0.1),
+                              color: Colors.black12,
+                              blurRadius: 3.1,
+                            ),
+                          ],
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 140,
+                                width: 140,
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'images/hl3.jpeg',
+                                        fit: BoxFit.cover,
+                                        height: 140,
+                                        width: double.infinity,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 10,
+                                      left: 10,
+                                      child: Text("4 Days"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Dubai Museum",
+                                      style: TextStyle(
+                                          color: Color(0xff444444),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "AUM 766",
+                                      style: TextStyle(
+                                        color: Color(0xff27A4BF),
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Beach Hotels",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff444444)),
+                    ),
+                    Material(
+                      shadowColor: Colors.black87,
+                      elevation: 8,
+                      color: Colors.transparent,
+                      child: Container(
+                        decoration: ShapeDecoration(
+                          shape: shape,
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xff27A4BF),
+                              Color(0xff3E3C3F),
+                              Color(0xff27A4BF),
+                            ],
+                          ),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                            primary: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            elevation: 0,
+                          ),
+                          onPressed: () {
+                            Navigator;
+                          },
+                          child: Text(
+                            'See all',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              ListView.builder(
+                padding: EdgeInsets.only(bottom: 10),
+                itemCount: uaeDubai.length,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemBuilder: (BuildContext ctx, int index) {
+                  return UaeCard(
+                    uaeDubai: uaeDubai[index],
+                    onCardClick2: () {
+                      Navigator;
+                    },
+                  );
+                },
+              ),
+            ],
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            item.title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 32,
-              color: Colors.green,
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff27A4BF),
             ),
-          )
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_offer_outlined,
+            ),
+            label: 'Offer',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'School',
+          ),
         ],
       ),
     );
   }
 }
 
-class _HomeScrollState extends State<HomeScroll> {
-  DateTime date = DateTime.now();
-  DateTime onlyDate = DateTime(now.year, now.month, now.day);
-
-  get child => null;
-
-  static get now => null;
-  Future<Null> selectTimePicker(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: date,
-        firstDate: DateTime(2020),
-        lastDate: DateTime(2050));
-    if (picked != null && picked != date) {
-      setState(() {
-        date = picked;
-        print(date.toString());
-      });
-    }
-  }
-
-  // int _index = 0;
-  Widget buildCard({
-    required CardItem item,
-  }) =>
-      Container(
-        width: 200,
-        child: Column(children: [
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 4 / 3,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: Material(
-                  child: Ink.image(
-                    image: NetworkImage(item.urlImage),
-                    fit: BoxFit.cover,
-                    child: InkWell(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ShoePage(item: item))),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            item.title,
-            style: TextStyle(
-              fontSize: 21,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            item.subTitle,
-            style: TextStyle(
-              fontSize: 17,
-              color: Colors.grey,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ]),
-      );
-
-  //list card items
-  List<CardItem> items = [
-    CardItem(
-      urlImage:
-          'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-      title: ' Nike Run shoe',
-      subTitle: '\$99',
-    ),
-    CardItem(
-      urlImage:
-          'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80',
-      title: ' Nike Run shoe',
-      subTitle: '\$99',
-    ),
-    CardItem(
-      urlImage:
-          'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
-      title: ' Nike Run shoe',
-      subTitle: '\$99',
-    ),
-    CardItem(
-      urlImage:
-          'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-      title: ' Nike Run shoe',
-      subTitle: '\$99',
-    ),
-    CardItem(
-      urlImage:
-          'https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80',
-      title: ' Nike Run shoe',
-      subTitle: '\$99',
-    ),
-  ];
-  @override
-  /* Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('scroll view'),
-      ),
-      body: Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
-        height: 300,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            Container(
-              width: 160.0,
-              child: Card(
-                child: Wrap(
-                  children: [
-                    Image.network(
-                        "https://cdn.iconscout.com/icon/free/png-256/star-bookmark-favorite-shape-rank-16-28621.png"),
-                    ListTile(
-                      title: Text("title"),
-                      subtitle: Text("sub Title"),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }*/
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              height: 250,
-              child: ListView.separated(
-                padding: EdgeInsets.all(16),
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) => buildCard(item: items[index]),
-                separatorBuilder: (context, _) => SizedBox(
-                  width: 10,
-                ),
-              ),
-            ),
-            // ignore: deprecated_member_use
-            FlatButton(
-              child: Text(date.toString()),
-              color: Colors.green,
-              textColor: Colors.white,
-              onPressed: () {
-                selectTimePicker(context);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class List extends StatelessWidget {
+//   const List({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView(
+//       children: [
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//         ListTile(
+//           leading: Icon(Icons.doorbell_sharp),
+//           subtitle: Text('799'),
+//           title: Text(
+//             'Hotal Blue Lahoon',
+//             style: TextStyle(
+//               fontSize: 19,
+//               color: Colors.black12,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           height: 5,
+//         ),
+//       ],
+//     );
+//   }
+// }

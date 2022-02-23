@@ -6,70 +6,38 @@ import 'package:learn/model/category.dart';
 import 'package:learn/model/subcategory.dart';
 
 class Utils {
-  static List<Category> getMockedCategories() {
+  static List<UaeDubai> getMockedCategories() {
     return [
-      Category(
-        color: AppColors.Main_Color,
-        name: "Mydeen",
-        imgName: "ux",
-        icon: IconFontHelp.HOME,
-        subCategories: [
-          SubCategory(
-            color: AppColors.Main_Color,
-            name: "Mydeen",
-            imgName: "ux",
-            icon: IconFontHelp.HOME,
-          ),
-          SubCategory(
-            color: AppColors.Main_Color,
-            name: "Mydeen",
-            imgName: "ux",
-            icon: IconFontHelp.HOME,
-          ),
-          SubCategory(
-            color: AppColors.Main_Color,
-            name: "sheik",
-            imgName: "ux",
-            icon: IconFontHelp.HOME,
-          ),
-          SubCategory(
-            color: AppColors.Main_Color,
-            name: "Kathar",
-            imgName: "ux",
-            icon: IconFontHelp.HOME,
-          ),
-        ],
+      UaeDubai(
+        name: "Hotel Blue Lagoon",
+        subName: "Chicago",
+        imgName: "li1",
+        subCategories: [],
       ),
-      Category(
-          color: AppColors.Main_Color,
-          name: "Abdul",
-          imgName: "ux",
-          icon: IconFontHelp.MOB,
-          subCategories: []),
-      Category(
-          color: AppColors.Main_Color,
-          name: "Kathar",
-          imgName: "ux",
-          icon: IconFontHelp.MUSIC,
-          subCategories: []),
-      Category(
-          color: AppColors.Main_Color,
-          name: "Mydeen",
-          imgName: "ux",
-          icon: IconFontHelp.HOME,
-          subCategories: []),
-      Category(
-          color: AppColors.Main_Color,
-          name: "Abdul",
-          imgName: "ux",
-          icon: IconFontHelp.MOB,
-          subCategories: []),
-      Category(
-          color: AppColors.Main_Color,
-          name: "Kathar",
-          imgName: "ux",
-          icon: IconFontHelp.MUSIC,
-          subCategories: []),
+      UaeDubai(
+        name: "Hotel Blue Lagoon",
+        subName: "Chicago",
+        imgName: "li2",
+        subCategories: [],
+      ),
+      UaeDubai(
+        name: "Hotel Blue Lagoon",
+        subName: "Chicago",
+        imgName: "li3",
+        subCategories: [],
+      ),
+      UaeDubai(
+        name: "Hotel Blue Lagoon",
+        subName: "Chicago",
+        imgName: "li4",
+        subCategories: [],
+      ),
+      UaeDubai(
+        name: "Hotel Blue Lagoon",
+        subName: "Chicago",
+        imgName: "li5",
+        subCategories: [],
+      ),
     ];
   }
 }
