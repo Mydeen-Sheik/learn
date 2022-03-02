@@ -1,9 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/booking.dart';
 import 'package:learn/dummy.dart';
 import 'package:learn/grid.dart';
 import 'package:learn/helper/utils.dart';
+import 'package:learn/holidays.dart';
 import 'package:learn/log_in.dart';
 import 'package:learn/login.dart';
 import 'package:learn/om_home.dart';
@@ -15,13 +17,17 @@ import 'package:learn/splash.dart';
 import 'package:learn/travel.dart';
 import 'package:learn/travel1.dart';
 import 'package:learn/welcome.dart';
+import 'Catelist.dart';
+import 'dayplan.dart';
+import 'detail.dart';
+import 'holiday_plan.dart';
 import 'pages/clist.dart ';
 import 'helper/appcolors.dart';
 import 'home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false, home: Home(),
     // duration: 3,

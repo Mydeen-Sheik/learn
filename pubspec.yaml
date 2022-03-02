@@ -29,19 +29,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^1.10.0
-  firebase_database: ^8.1.0
-  cloud_firestore: ^3.1.0
-  firebase_auth: ^3.2.0
-  fluttertoast: ^8.0.8
-  otp_text_field: ^1.1.1
+#  firebase_core: ^1.10.0
+#  firebase_database: ^8.1.0
+#  cloud_firestore: ^3.1.0
+#  firebase_auth: ^3.2.0
+#  fluttertoast: ^8.0.8
+#  otp_text_field: ^1.1.1
   dropdownfield: 1.0.0
   pinput: ^1.2.2
-  firebase_messaging: ^11.2.3
+#  firebase_messaging: ^11.2.3
   overlay_support: ^1.2.1
-  firebase_phone_auth_handler: ^0.0.8
+#  firebase_phone_auth_handler: ^0.0.8
   path_provider: ^2.0.8
   image_picker: ^0.8.4+4
+  carousel_pro: ^1.0.0
+  flutter_staggered_grid_view: ^0.6.1
+#  masonry_grid: ^1.0.0
+  flutter_wall_layout: ^2.1.1
 
 
 

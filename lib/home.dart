@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/holiday_plan.dart';
+import 'package:learn/holidays.dart';
 import 'package:learn/pages/categorycard.dart';
 import 'package:learn/widgets/bottombar.dart';
 
+import 'Catelist.dart';
 import 'helper/appcolors.dart';
 import 'helper/iconhelper.dart';
 import 'helper/utils.dart';
@@ -48,6 +51,7 @@ class Home extends StatelessWidget {
           // ),
         ],
       ),
+      backgroundColor: Color(0xffeeeeee),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -108,8 +112,8 @@ class Home extends StatelessWidget {
                                   ),
                                   child: Image(
                                     image: AssetImage('images/bt1.jpeg'),
-                                    height: 25,
-                                    width: 25,
+                                    height: 20,
+                                    width: 22,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -159,7 +163,10 @@ class Home extends StatelessWidget {
                               elevation: 0,
                             ),
                             onPressed: () {
-                              Navigator;
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CateList()));
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -178,8 +185,8 @@ class Home extends StatelessWidget {
                                   ),
                                   child: Image(
                                     image: AssetImage('images/bt2.jpeg'),
-                                    height: 25,
-                                    width: 25,
+                                    height: 22,
+                                    width: 22,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -248,8 +255,8 @@ class Home extends StatelessWidget {
                                   ),
                                   child: Image(
                                     image: AssetImage('images/insurance.png'),
-                                    height: 25,
-                                    width: 25,
+                                    height: 22,
+                                    width: 22,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -318,8 +325,8 @@ class Home extends StatelessWidget {
                                   ),
                                   child: Image(
                                     image: AssetImage('images/bt3.jpeg'),
-                                    height: 25,
-                                    width: 25,
+                                    height: 20,
+                                    width: 22,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -388,8 +395,8 @@ class Home extends StatelessWidget {
                                   ),
                                   child: Image(
                                     image: AssetImage('images/bt5.jpeg'),
-                                    height: 25,
-                                    width: 25,
+                                    height: 20,
+                                    width: 22,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -434,7 +441,7 @@ class Home extends StatelessWidget {
                                 children: [
                                   Positioned.fill(
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(5),
                                       child: Image.asset(
                                         'images/slid1.jpeg',
                                         fit: BoxFit.cover,
@@ -450,13 +457,13 @@ class Home extends StatelessWidget {
                                       height: 80,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
+                                        borderRadius: BorderRadius.circular(5),
                                         gradient: LinearGradient(
                                             begin: Alignment.topCenter,
                                             end: Alignment.topCenter,
                                             colors: [
-                                              Colors.black.withOpacity(0.2),
-                                              Colors.black.withOpacity(0.3),
+                                              Colors.black.withOpacity(0.1),
+                                              Colors.black.withOpacity(0.1),
                                             ]),
                                       ),
                                     ),
@@ -561,7 +568,7 @@ class Home extends StatelessWidget {
                                 children: [
                                   Positioned.fill(
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(5),
                                       child: Image.asset(
                                         'images/slid2.jpeg',
                                         fit: BoxFit.cover,
@@ -577,13 +584,13 @@ class Home extends StatelessWidget {
                                       height: 80,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius: BorderRadius.circular(5),
                                         gradient: LinearGradient(
                                             begin: Alignment.topCenter,
                                             end: Alignment.topCenter,
                                             colors: [
-                                              Colors.black.withOpacity(0.3),
-                                              Colors.black.withOpacity(0.3),
+                                              Colors.black.withOpacity(0.1),
+                                              Colors.black.withOpacity(0.1),
                                             ]),
                                       ),
                                     ),
@@ -688,7 +695,7 @@ class Home extends StatelessWidget {
                                 children: [
                                   Positioned.fill(
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(5),
                                       child: Image.asset(
                                         'images/slid2.jpeg',
                                         fit: BoxFit.cover,
@@ -704,13 +711,13 @@ class Home extends StatelessWidget {
                                       height: 80,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius: BorderRadius.circular(5),
                                         gradient: LinearGradient(
                                             begin: Alignment.topCenter,
                                             end: Alignment.topCenter,
                                             colors: [
-                                              Colors.black.withOpacity(0.3),
-                                              Colors.black.withOpacity(0.3),
+                                              Colors.black.withOpacity(0.1),
+                                              Colors.black.withOpacity(0.1),
                                             ]),
                                       ),
                                     ),
@@ -811,7 +818,7 @@ class Home extends StatelessWidget {
                 height: 15,
               ),
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -848,7 +855,10 @@ class Home extends StatelessWidget {
                             elevation: 0,
                           ),
                           onPressed: () {
-                            Navigator;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HolidayMenu()));
                           },
                           child: Text(
                             'See all',
@@ -871,7 +881,7 @@ class Home extends StatelessWidget {
                   itemBuilder: (context, index) => Row(
                     children: [
                       Container(
-                        height: 220,
+                        height: 200,
                         width: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -886,13 +896,13 @@ class Home extends StatelessWidget {
                         ),
                         margin: EdgeInsets.all(5),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                height: 140,
+                                height: 130,
                                 width: 140,
                                 child: Stack(
                                   children: [
@@ -901,7 +911,7 @@ class Home extends StatelessWidget {
                                       child: Image.asset(
                                         'images/hl1.jpeg',
                                         fit: BoxFit.cover,
-                                        height: 140,
+                                        height: 130,
                                       ),
                                     ),
                                     Positioned(
@@ -913,7 +923,7 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -947,7 +957,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 220,
+                        height: 200,
                         width: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -962,13 +972,13 @@ class Home extends StatelessWidget {
                         ),
                         margin: EdgeInsets.all(5),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                height: 140,
+                                height: 130,
                                 width: 150,
                                 child: Stack(
                                   children: [
@@ -977,7 +987,7 @@ class Home extends StatelessWidget {
                                       child: Image.asset(
                                         'images/hl2.jpeg',
                                         fit: BoxFit.cover,
-                                        height: 140,
+                                        height: 130,
                                       ),
                                     ),
                                     Positioned(
@@ -989,7 +999,7 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1023,7 +1033,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 220,
+                        height: 200,
                         width: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -1038,13 +1048,13 @@ class Home extends StatelessWidget {
                         ),
                         margin: EdgeInsets.all(5),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                height: 140,
+                                height: 130,
                                 width: 140,
                                 child: Stack(
                                   children: [
@@ -1053,7 +1063,7 @@ class Home extends StatelessWidget {
                                       child: Image.asset(
                                         'images/hl3.jpeg',
                                         fit: BoxFit.cover,
-                                        height: 140,
+                                        height: 130,
                                         width: double.infinity,
                                       ),
                                     ),
@@ -1066,7 +1076,7 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8, 5, 8, 5),
+                                padding: EdgeInsets.fromLTRB(8, 5, 8, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1104,7 +1114,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -1175,11 +1185,12 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Color(0xff27A4BF),
+        currentIndex: 0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: Color(0xff27A4BF),
             ),
             label: 'Home',
           ),

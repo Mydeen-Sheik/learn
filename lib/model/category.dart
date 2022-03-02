@@ -42,3 +42,59 @@ class UaeDubai {
     required this.subCategories,
   });
 }
+
+class CategoryList {
+  String name;
+  String iconImage;
+  String subtitle;
+  String imgName;
+  String offLabel;
+  String offAmt;
+
+  CategoryList({
+    required this.name,
+    required this.iconImage,
+    required this.subtitle,
+    required this.imgName,
+    required this.offLabel,
+    required this.offAmt,
+  });
+}
+
+class Plans {
+  String time;
+  String title;
+  String description;
+  String imgName;
+
+  Plans({
+    required this.time,
+    required this.title,
+    required this.description,
+    required this.imgName,
+  });
+}
+
+class Actived {
+  String price;
+  String title;
+  String imgNme;
+
+  Actived({
+    required this.price,
+    required this.title,
+    required this.imgNme,
+  });
+}
+
+class HolidayCate {
+  String price;
+  String title;
+  String imgNme;
+
+  HolidayCate({
+    required this.price,
+    required this.title,
+    required this.imgNme,
+  });
+}
